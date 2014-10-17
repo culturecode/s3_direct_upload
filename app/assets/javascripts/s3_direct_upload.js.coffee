@@ -1,3 +1,4 @@
+#= require ajaxq
 #= require jquery-fileupload/basic
 #= require jquery-fileupload/vendor/tmpl
 
@@ -70,7 +71,7 @@ $.fn.S3Uploader = (options) ->
         if callback_url
           content[$uploadForm.data('callback-param')] = content.url
 
-          $.ajax
+          $.ajaxq "CallbackQueue",
             type: $uploadForm.data('callback-method')
             url: callback_url
             data: content
